@@ -59,6 +59,36 @@ init(path.resolve(modulePath, './package.json'), function (err, bindingPath) {
 In the above example, `node-pre-gyp-init` is simply being used to make sure the
 native binding exists before requiring the actual native module.
 
+## API
+
+init(pathToPackageJson, callback)
+
+ * `pathToPackageJson` (string) - The path to the native module's package.json.
+ * `callback(err, bindingPath)` (function) - A function to call after resolving
+   the binding path.
+
+Returns an `EventEmitter` where you can listen for the following events:
+
+ * `success` - The native binding was found.
+
+   Parameters:
+   * `bindingPath` (string) - The path to the resolved native module.
+
+
+ * `error` - Failed to install the pre-compiled binding or locate the binding
+   after it was successfully compiled.
+
+   Parameters:
+   * `err` (Error) - The error details. If the error was because of a build
+     error, then the return code is stored in `err.code`.
+
+
+ * `stdout` and `stderr` - Output directly from the `node-pre-gyp` subprocess.
+   This is handy if you need to debug what `node-pre-gyp` is doing.
+
+   Parameters:
+   * `output` (string) - The output from `node-pre-gyp`.
+
 ## License
 
 (The MIT License)
