@@ -1,23 +1,23 @@
 {
   "name": "node-pre-gyp-init",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Resolves a native binding at runtime and builds it if doesn't exist",
   "main": "./index.js",
   "author": "Chris Barber <chris@cb1inc.com> (https://github.com/cb1kenobi)",
   "license": "MIT",
   "keywords": [
     "node-pre-gyp",
-	"gyp",
-	"native",
-	"addon",
-	"module",
-	"c",
-	"c++",
-	"bindings",
-	"binary"
+    "gyp",
+    "native",
+    "addon",
+    "module",
+    "c",
+    "c++",
+    "bindings",
+    "binary"
   ],
   "dependencies": {
-    "node-pre-gyp": "^0.6.32"
+    "node-pre-gyp": "^0.10.0"
   },
   "homepage": "https://github.com/cb1kenobi/node-pre-gyp-init",
   "bugs": "https://github.com/cb1kenobi/node-pre-gyp-init/issues",
