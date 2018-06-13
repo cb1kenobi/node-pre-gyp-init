@@ -1,5 +1,7 @@
 # node-pre-gyp-init
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cb1kenobi/node-pre-gyp-init.svg)](https://greenkeeper.io/)
+
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Deps][david-image]][david-url]
