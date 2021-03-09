@@ -17,7 +17,7 @@
     "binary"
   ],
   "dependencies": {
-    "node-pre-gyp": "^0.10.0"
+    "@mapbox/node-pre-gyp": "^1.0.1"
   },
   "homepage": "https://github.com/cb1kenobi/node-pre-gyp-init",
   "bugs": "https://github.com/cb1kenobi/node-pre-gyp-init/issues",

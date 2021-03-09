@@ -2,7 +2,7 @@
 
 var EventEmitter = require('events').EventEmitter;
 var fs = require('fs');
-var find = require('node-pre-gyp').find;
+var find = require('@mapbox/node-pre-gyp').find;
 var path = require('path');
 var spawn = require('child_process').spawn;
 
@@ -24,7 +24,7 @@ module.exports = function init(pkgJsonPath, callback) {
 			return callback(null, bindingPath);
 		}
 
-		var npg = path.resolve(require.resolve('node-pre-gyp'), '../../bin/node-pre-gyp');
+		var npg = path.resolve(require.resolve('@mapbox/node-pre-gyp'), '../../bin/node-pre-gyp');
 		var child = spawn(process.execPath, [npg, 'install', '--fallback-to-build'], { cwd: path.dirname(pkgJsonPath) });
 		var stdout = '';
 		var stderr = '';
