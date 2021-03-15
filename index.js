@@ -18,8 +18,13 @@ module.exports = function init(pkgJsonPath, callback) {
 	var emitter = new EventEmitter();
 
 	setImmediate(function () {
+		// Change process.argv to just the node binary to avoid node-pre-gyp picking up any command
+		// line options that may clash with options from the process that is using node-pre-gyp-init
+		var originalArgv = process.argv;
+		process.argv = [ process.execPath ];
 		var bindingPath = find(pkgJsonPath);
 		if (existsSync(bindingPath)) {
+			process.argv = originalArgv;
 			emitter.emit('success', bindingPath);
 			return callback(null, bindingPath);
 		}
@@ -52,10 +57,12 @@ module.exports = function init(pkgJsonPath, callback) {
 				}
 
 				bindingPath = find(pkgJsonPath);
+				process.argv = originalArgv;
 				if (!existsSync(bindingPath)) {
 					throw new Error('Successfully rebuilt the native module, but unable to find it: ' + bindingPath);
 				}
 			} catch (err) {
+				process.argv = originalArgv;
 				emitter.emit('error', err);
 				return callback(err);
 			}
